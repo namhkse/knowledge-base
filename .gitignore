@@ -1,0 +1,14 @@
+# OS
+.DS_Store
+
+# Editor
+.vscode/
+
+# Logs
+*.log
+
+# Build
+target/
+node_modules/
+bin/
+obj/
