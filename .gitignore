@@ -12,3 +12,7 @@ target/
 node_modules/
 bin/
 obj/
+
+# Examples
+*lab*/
+*Lab*/
