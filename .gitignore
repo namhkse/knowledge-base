@@ -16,3 +16,9 @@ obj/
 # Examples
 *lab*/
 *Lab*/
+
+# Ignore everything in the folder
+01-books/**/*
+
+# Don't ignore Markdown files
+!01-books/**/*.md
