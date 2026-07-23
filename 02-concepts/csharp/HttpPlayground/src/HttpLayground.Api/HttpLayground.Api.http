@@ -1,0 +1,18 @@
+### 
+
+GET {{host}}/weatherforecast/
+Accept: application/json
+
+###
+
+POST {{host}}/weatherforecast/
+Content-Type: application/json
+Accept: application/json
+
+{
+    "date": "2026-07-28",
+    "temperatureC": -18,
+    "summary": "Balmy"
+}
+
+

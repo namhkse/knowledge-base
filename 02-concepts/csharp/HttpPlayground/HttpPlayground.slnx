@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/src/">
+    <File Path="src\README.md" />
+    <Project Path="src/HttpLayground.Api/HttpLayground.Api.csproj" />
+  </Folder>
+</Solution>
