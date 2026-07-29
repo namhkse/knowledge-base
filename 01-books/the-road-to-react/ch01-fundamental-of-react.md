@@ -717,3 +717,118 @@ Two important things:
 - The state processed by a reducer function is immutable. The reducer function always returns
 a new state object.
 - We can use teh JS spread operator to create a new state object from immutable state.
+
+
+# React Asynchornous Data
+
+We have two interactions in our app:
+- Searching the list
+- Remove items from the list
+
+Usulaly, data from a remote backedn/database arrives asynchronously for client-side applications like React.
+
+This it's often the case that we must render. Thus it's often the case we must render a component before we can initiate the data fetching.
+
+In the App component, instead of using teh initialStories, use an empty array for the initial
+state.
+
+We want to start with an empty list fo stories and simulate fetching these stories aynchronously.
+In a new `useEffect` hook, call the function and resolve the returned promise as a side-effect. The side-effect only runs once the component renders for the first time.
+
+Even though the data shold arrive async when we start the application, it apperas to arrive
+sync, because it's rendered immediately.
+
+Intead of having the data tehre from the beginning, we resolved the data asynchronously from 
+a promise.
+
+# React Conditional Rendering 
+
+In real application, a user would see some kind of feedback (e.g. loading spinner) when data
+gets loaded. We want to cimplment such feedback.
+
+Task: It takes some time to load the sample data from the promise. During this time, a user
+should be presented with a loading indicator (e.g. text wich says "Loading...").
+Once the data arrived asynchronously, hide the loaidng indicator.
+
+# React Advanced State
+
+A reduer action is always associated with a `type` and as a best practice with a `payload`.
+If the `type` matches a condition in the reducer, reutrn a new state based on incoming state and action.
+If it isn't covered by the reduer, throw an error to remind yourself that the implementtation
+isn't covered.
+
+```jsx
+const [stories, dispatchStories] = React.useReducer(
+    storiesReducer,
+    []
+  );
+```
+
+The new dispatch function can be used instead of the `setStories` function.
+Instead of setting the state explicitly with the state updater function from `useState`.
+The `useReducer` state updater function sets the state implicitly by dispatching an action for the reducer.
+
+# React Impossible States
+
+You've noticed disconected between the single states in the App component when using multiples states.
+All states related to the asychronous data belong tegether.
+
+There is nothing woring with multiple `useState` hooks in one React component. Be wary once you see multiple state updater function in a row.
+However, there condition states can lead to impossible states and undersierd behavior in the UI.
+
+The impossible state happens when an error occurs for the asynchronous data.L
+
+
+# Data Fetching with react
+
+We set everything up for asynchronous data fetching React.
+However, we are still using pseudo data comming from a promise we setup ourselves for a
+fake API.
+
+# Data Re-Fetching in React
+
+# Memoized Fucntions in React (Advanced)
+
+Functions that are defined in a React componens are most of the time event handlers.
+
+However, because a React component is just a function itself, you can declare functions,
+function expressions, and arrow function expressions in a component too.
+
+We will intorduce the concept of a memoized function by using React's useCallback Hook.
+
+React's useEffect Hook. Instead of using the data fetching logic directly in the 
+side-effect, we made it avaiable as a function for the entire application.
+
+The benefit: reusability, the data fetchign can be used by other parts of the application
+by calling this new function.
+
+We have used React's useCallback Hook to wrap the extracted function.
+React's useCallback creates a memoized function every time its dependency array changes.
+As a result, the `useEffect` hook runs again, because it depends on the new function.
+
+1. change: searchTern (cause: user interaction)
+2. change: handleFetchStories
+3. run: side-effect
+
+If we didn't create a memoized function with React's useCallback Hook, 
+a new handleFetchStories function would be created each time the App component re-renders,
+and would be executed in the useEffect hook to fetch data.
+The fetch data is then stored as state in the component.
+Because the state of the component changed, the component re-redners and create a new
+`handleFetchStories` function.
+The side-effect would be triggered to fetch data, and we'd be stuck in an endless loop.
+
+By moving the data fetching function outside the React's useEffect Hook, it becomes 
+reusable for other parts of the application.
+
+# Explicit Data Fetching with React
+
+Re-fetching all data each time someone types in the input fields isn't optimal.
+Since we're using a 3rd API to fetch the data. We will cahnge the implementation details from implicit to explicit data.
+
+The application will refetch data only if someone clicks a confirmation button.
+
+**Task:** The server-side search executes every time a user types into th einput field.
+The new implementation should only execute a search when a user clicks a confirmation 
+button. As long as the button is not clicked, the search tern can change but isn't 
+executed as API request.
