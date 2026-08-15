@@ -1,0 +1,38 @@
+{
+  "name": "hacker-stories",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "vitest",
+    "lint": "oxlint",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "axios": "^1.18.1",
+    "clsx": "^2.1.1",
+    "lodash": "^4.18.1",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "styled-components": "^6.4.4",
+    "uuid": "^14.0.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^7.0.0",
+    "@testing-library/react": "^16.3.2",
+    "@types/lodash": "^4.17.24",
+    "@types/node": "^26.1.1",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "@vitejs/plugin-react": "^6.0.3",
+    "jsdom": "^30.0.1",
+    "oxlint": "^1.71.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.1.1",
+    "vite-plugin-eslint": "^1.8.1",
+    "vite-plugin-svgr": "^5.2.0",
+    "vitest": "^4.1.10"
+  }
+}
