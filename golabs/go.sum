@@ -1,0 +1,4 @@
+github.com/gorilla/mux v1.8.1 h1:TuBL49tXwgrFYWhqrNgrUNEY92u81SPhu7sTdzQEiWY=
+github.com/gorilla/mux v1.8.1/go.mod h1:AKf9I4AEqPTmMytcMc0KkNouC66V3BtZ4qD5fmWSiMQ=
+github.com/learning-go-book-2e/package_example v0.0.0-20230118045510-2667d1765628 h1:LPet835leM9Onmh+Zaecbyw1A/8cUW/2maPyASY8+4s=
+github.com/learning-go-book-2e/package_example v0.0.0-20230118045510-2667d1765628/go.mod h1:SjcNh8fA6FqveBXBrBtc6FOau5fWloSkY78j2e6+VXE=
